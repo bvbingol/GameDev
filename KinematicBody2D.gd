@@ -18,9 +18,10 @@ func get_input():
 		velocity.y = jump_speed
 	if right:
 		velocity.x += run_speed
+		get_node( "Sprite" ).set_flip_h( true )
 	if left:
 		velocity.x -= run_speed
-
+		get_node( "Sprite" ).set_flip_h( false )
 func _physics_process(delta):
 	get_input()
 	velocity.y += gravity * delta
